@@ -1,0 +1,221 @@
+.course-detail-page {
+    padding: 0 32px 40px;
+    max-width: 1100px;
+}
+
+.page-loading,
+.page-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    font-size: 16px;
+    color: #64748b;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #64748b;
+    text-decoration: none;
+    margin-bottom: 16px;
+    transition: color 0.2s;
+}
+
+.back-btn:hover {
+    color: #2563eb;
+}
+
+.course-detail-header {
+    margin-bottom: 28px;
+}
+
+.course-detail-meta h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0 0 6px;
+}
+
+.course-detail-meta p {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0 0 12px;
+}
+
+.course-stats {
+    display: flex;
+    gap: 16px;
+}
+
+.course-stats span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.course-detail-body {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+}
+
+.lessons-panel h3,
+.vocab-panel h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 14px;
+}
+
+.lesson-item {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1px solid #e8ecf0;
+    border-radius: 12px;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    margin-bottom: 8px;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.lesson-item:hover {
+    border-color: #bfdbfe;
+    background: #f8faff;
+}
+
+.lesson-item.active {
+    border-color: #2563eb;
+    background: #eff6ff;
+}
+
+.lesson-order {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.lesson-item.active .lesson-order {
+    background: #2563eb;
+    color: #fff;
+}
+
+.lesson-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 2px;
+}
+
+.lesson-desc {
+    font-size: 11px;
+    color: #94a3b8;
+}
+
+.vocab-panel {
+    min-height: 400px;
+}
+
+.no-vocab {
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.vocab-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.vocab-card {
+    background: #fff;
+    border: 1px solid #e8ecf0;
+    border-radius: 14px;
+    padding: 16px 20px;
+    transition: box-shadow 0.2s;
+}
+
+.vocab-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.vocab-word {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.word {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.phonetic {
+    font-size: 13px;
+    color: #64748b;
+    font-style: italic;
+}
+
+.pos-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: #7c3aed;
+    background: #faf5ff;
+    border: 1px solid #e9d5ff;
+    padding: 2px 8px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.definition {
+    font-size: 13px;
+    color: #475569;
+    margin: 0 0 4px;
+}
+
+.vietnamese {
+    font-size: 13px;
+    font-weight: 600;
+    color: #059669;
+    margin: 0;
+}
+
+.vocab-example {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.ex-en {
+    font-size: 13px;
+    color: #2563eb;
+    font-style: italic;
+    margin: 0 0 4px;
+}
+
+.ex-vi {
+    font-size: 12px;
+    color: #64748b;
+    margin: 0;
+}
