@@ -6,6 +6,7 @@ const navItems = [
     { icon: '💬', label: 'Giao tiếp', path: '/communicate' },
     { icon: '📖', label: 'Đọc đọc', path: '/' },
     { icon: '📢', label: 'Read Aloud', path: '/read-aloud' },
+    { icon: '🎧', label: 'Dictation', path: '/dictation' },
     { icon: '⚙️', label: 'Thiết lập', path: '/settings' },
 ];
 

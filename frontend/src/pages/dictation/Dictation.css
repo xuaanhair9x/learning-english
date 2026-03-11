@@ -1,0 +1,241 @@
+.dictation-page {
+    padding: 0 32px 48px;
+    max-width: 900px;
+}
+
+.dictation-header {
+    margin-bottom: 28px;
+}
+
+.dictation-header h1 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 8px 0 4px;
+}
+
+.dictation-header p {
+    font-size: 14px;
+    color: #64748b;
+    margin: 0;
+}
+
+.back-link {
+    background: none;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2563eb;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 8px;
+    font-family: inherit;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* ── Collection Grid ─────────────────────── */
+.dictation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 16px;
+}
+
+.collection-card {
+    background: #fff;
+    border: 1.5px solid #e8ecf0;
+    border-radius: 16px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.collection-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--col-color, #2563eb);
+    border-radius: 16px 16px 0 0;
+}
+
+.collection-card:hover {
+    border-color: var(--col-color, #2563eb);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.collection-icon {
+    font-size: 32px;
+}
+
+.collection-body {
+    flex: 1;
+}
+
+.collection-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0 0 6px;
+}
+
+.collection-desc {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0 0 10px;
+    line-height: 1.5;
+}
+
+.collection-meta {
+    display: flex;
+    gap: 8px;
+}
+
+.meta-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+.collection-btn {
+    background: var(--col-color, #2563eb);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: opacity 0.15s;
+    align-self: flex-start;
+}
+
+.collection-btn:hover {
+    opacity: 0.88;
+}
+
+.collection-skeleton {
+    height: 180px;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 400% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+/* ── Passage List ─────────────────────────── */
+.passage-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.passage-card {
+    background: #fff;
+    border: 1px solid #e8ecf0;
+    border-radius: 14px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.passage-card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.1);
+}
+
+.passage-num {
+    width: 40px;
+    height: 40px;
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.passage-info {
+    flex: 1;
+}
+
+.passage-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 4px;
+}
+
+.passage-meta {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.passage-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.progress-pct {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.start-btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+    transition: background 0.15s;
+}
+
+.start-btn:hover {
+    background: #1d4ed8;
+}
+
+.passage-skeleton {
+    height: 80px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 400% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}

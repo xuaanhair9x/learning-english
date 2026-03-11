@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import TopNav from '../components/TopNav';
-import CourseCard from '../components/CourseCard';
-import TopicCard from '../components/TopicCard';
-import { coursesAPI, topicsAPI, progressAPI } from '../api';
-import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import TopNav from '../../components/TopNav';
+import CourseCard from '../../components/CourseCard';
+import TopicCard from '../../components/TopicCard';
+import { coursesAPI, topicsAPI, sentencesAPI } from '../../api';
+import { useAuth } from '../../context/AuthContext';
 import './Home.css';
 
 const skills = [

@@ -1,12 +1,15 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import Sidebar from './components/Sidebar';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import CourseDetail from './pages/CourseDetail';
-import ReadAloud from './pages/ReadAloud';
-import ReadAloudSession from './pages/ReadAloudSession';
+import Home from './pages/home/Home';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import CourseDetail from './pages/course/CourseDetail';
+import ReadAloud from './pages/read-aloud/ReadAloud';
+import ReadAloudSession from './pages/read-aloud/ReadAloudSession';
+import Dictation from './pages/dictation/Dictation';
+import DictationPassageList from './pages/dictation/DictationPassageList';
+import DictationSession from './pages/dictation/DictationSession';
 import './App.css';
 
 function AppLayout({ children }) {
@@ -20,6 +23,10 @@ function AppLayout({ children }) {
     );
 }
 
+const layoutRoute = (path, Component) => (
+    <Route key={path} path={path} element={<AppLayout><Component /></AppLayout>} />
+);
+
 export default function App() {
     return (
         <AuthProvider>
@@ -27,47 +34,15 @@ export default function App() {
                 <Routes>
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route
-                        path="/"
-                        element={
-                            <AppLayout>
-                                <Home />
-                            </AppLayout>
-                        }
-                    />
-                    <Route
-                        path="/course/:id"
-                        element={
-                            <AppLayout>
-                                <CourseDetail />
-                            </AppLayout>
-                        }
-                    />
-                    <Route
-                        path="/read-aloud"
-                        element={
-                            <AppLayout>
-                                <ReadAloud />
-                            </AppLayout>
-                        }
-                    />
-                    <Route
-                        path="/read-aloud/:id"
-                        element={
-                            <AppLayout>
-                                <ReadAloudSession />
-                            </AppLayout>
-                        }
-                    />
-                    {/* Fallback */}
-                    <Route
-                        path="*"
-                        element={
-                            <AppLayout>
-                                <Home />
-                            </AppLayout>
-                        }
-                    />
+
+                    {layoutRoute("/", Home)}
+                    {layoutRoute("/course/:id", CourseDetail)}
+                    {layoutRoute("/read-aloud", ReadAloud)}
+                    {layoutRoute("/read-aloud/:id", ReadAloudSession)}
+                    {layoutRoute("/dictation", Dictation)}
+                    {layoutRoute("/dictation/:collectionId", DictationPassageList)}
+                    {layoutRoute("/dictation/passage/:passageId", DictationSession)}
+                    {layoutRoute("*", Home)}
                 </Routes>
             </BrowserRouter>
         </AuthProvider>

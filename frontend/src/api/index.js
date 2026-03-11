@@ -67,4 +67,13 @@ export const sentencesAPI = {
   get: (id) => api.get(`/sentences/${id}`),
 };
 
+// ─── Dictation ─────────────────────────────────────
+export const dictationAPI = {
+  listCollections: () => api.get('/dictation/collections'),
+  listPassages: (colId) => api.get(`/dictation/collections/${colId}/passages`),
+  getPassage: (id) => api.get(`/dictation/passages/${id}`),
+  listExercises: (passageId) => api.get(`/dictation/passages/${passageId}/exercises`),
+  checkAnswer: (exId, answer) => api.post(`/dictation/exercises/${exId}/check`, { answer }),
+};
+
 export default api;

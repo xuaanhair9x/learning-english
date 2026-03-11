@@ -38,6 +38,9 @@ func Migrate(db *gorm.DB) {
 		&models.Topic{},
 		&models.UserProgress{},
 		&models.Sentence{},
+		&models.DictationCollection{},
+		&models.DictationPassage{},
+		&models.DictationExercise{},
 	)
 	if err != nil {
 		log.Fatalf("Failed to migrate database: %v", err)

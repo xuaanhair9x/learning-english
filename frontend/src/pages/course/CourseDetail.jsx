@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { coursesAPI, lessonsAPI } from '../api';
-import TopNav from '../components/TopNav';
+import { useNavigate, useParams, Link } from 'react-router-dom';
+import { coursesAPI, lessonsAPI } from '../../api';
+import TopNav from '../../components/TopNav';
 import './CourseDetail.css';
 
 export default function CourseDetail() {

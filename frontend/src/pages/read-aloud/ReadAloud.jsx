@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { sentencesAPI } from '../api';
+import { useNavigate, Link } from 'react-router-dom';
+import { sentencesAPI } from '../../api';
 import './ReadAloud.css';
 
 const LEVELS = [
