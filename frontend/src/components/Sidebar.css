@@ -1,12 +1,13 @@
 .sidebar {
   width: 200px;
-  min-height: 100vh;
+  height: 100vh;
   background: #fff;
   border-right: 1px solid #e8ecf0;
   display: flex;
   flex-direction: column;
   padding: 0;
   flex-shrink: 0;
+  overflow-y: auto;
 }
 
 .sidebar-logo {

@@ -10,6 +10,7 @@ import ReadAloudSession from './pages/read-aloud/ReadAloudSession';
 import Dictation from './pages/dictation/Dictation';
 import DictationPassageList from './pages/dictation/DictationPassageList';
 import DictationSession from './pages/dictation/DictationSession';
+import Profile from './pages/profile/Profile';
 import './App.css';
 
 function AppLayout({ children }) {
@@ -42,6 +43,7 @@ export default function App() {
                     {layoutRoute("/dictation", Dictation)}
                     {layoutRoute("/dictation/:collectionId", DictationPassageList)}
                     {layoutRoute("/dictation/passage/:passageId", DictationSession)}
+                    {layoutRoute("/profile", Profile)}
                     {layoutRoute("*", Home)}
                 </Routes>
             </BrowserRouter>
