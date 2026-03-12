@@ -61,7 +61,7 @@ func (h *AuthHandler) Register(c *gin.Context) {
 		return
 	}
 
-	token, err := generateToken(user.ID, user.Email, h.Cfg.JWTSecret)
+	token, err := generateToken(user.ID, user.Email, user.Role, h.Cfg.JWTSecret)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate token"})
 		return
@@ -91,7 +91,7 @@ func (h *AuthHandler) Login(c *gin.Context) {
 		return
 	}
 
-	token, err := generateToken(user.ID, user.Email, h.Cfg.JWTSecret)
+	token, err := generateToken(user.ID, user.Email, user.Role, h.Cfg.JWTSecret)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate token"})
 		return
@@ -115,10 +115,11 @@ func (h *AuthHandler) Me(c *gin.Context) {
 	c.JSON(http.StatusOK, user)
 }
 
-func generateToken(userID uint, email, secret string) (string, error) {
+func generateToken(userID uint, email, role, secret string) (string, error) {
 	claims := jwt.MapClaims{
 		"user_id": userID,
 		"email":   email,
+		"role":    role,
 		"exp":     time.Now().Add(7 * 24 * time.Hour).Unix(),
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)

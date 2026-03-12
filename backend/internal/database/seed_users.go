@@ -24,6 +24,7 @@ func SeedUsers(db *gorm.DB) {
 			Email:    "admin@admin.com",
 			Password: hashPassword("admin123"),
 			Avatar:   "👑",
+			Role:     "admin",
 		},
 		{
 			Name:     "Test User",

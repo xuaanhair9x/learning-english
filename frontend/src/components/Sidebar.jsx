@@ -12,7 +12,7 @@ const navItems = [
 
 export default function Sidebar() {
     const location = useLocation();
-    const { user, logout } = useAuth();
+    const { user, isAdmin, logout } = useAuth();
 
     return (
         <aside className="sidebar">
@@ -32,6 +32,16 @@ export default function Sidebar() {
                         <span className="nav-label">{item.label}</span>
                     </Link>
                 ))}
+
+                {isAdmin && (
+                    <Link
+                        to="/admin"
+                        className={`sidebar-nav-item ${location.pathname.startsWith('/admin') ? 'active' : ''}`}
+                    >
+                        <span className="nav-icon">🛡️</span>
+                        <span className="nav-label">Admin Panel</span>
+                    </Link>
+                )}
             </nav>
 
             <div className="sidebar-footer">

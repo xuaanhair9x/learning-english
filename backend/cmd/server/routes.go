@@ -4,6 +4,7 @@ import (
 	"learn-english-backend/internal/config"
 	"learn-english-backend/internal/handlers"
 	"learn-english-backend/internal/middleware"
+	"learn-english-backend/internal/models"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -70,5 +71,21 @@ func SetupRoutes(r *gin.Engine, db *gorm.DB, cfg *config.Config) {
 	{
 		progress.GET("", progressHandler.GetMyProgress)
 		progress.POST("", progressHandler.Update)
+	}
+
+	// ─── Admin (protected) ───────────────────────────────────────
+	admin := r.Group("/api/admin")
+	admin.Use(middleware.AuthMiddleware(cfg))
+	admin.Use(middleware.AdminMiddleware())
+	{
+		handlers.RegisterCRUD[models.User](admin, db, "/users")
+		handlers.RegisterCRUD[models.Course](admin, db, "/courses")
+		handlers.RegisterCRUD[models.Lesson](admin, db, "/lessons")
+		handlers.RegisterCRUD[models.Vocabulary](admin, db, "/vocabulary")
+		handlers.RegisterCRUD[models.Topic](admin, db, "/topics")
+		handlers.RegisterCRUD[models.Sentence](admin, db, "/sentences")
+		handlers.RegisterCRUD[models.DictationCollection](admin, db, "/dictation-collections")
+		handlers.RegisterCRUD[models.DictationPassage](admin, db, "/dictation-passages")
+		handlers.RegisterCRUD[models.DictationExercise](admin, db, "/dictation-exercises")
 	}
 }

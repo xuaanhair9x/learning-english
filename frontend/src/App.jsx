@@ -11,6 +11,22 @@ import Dictation from './pages/dictation/Dictation';
 import DictationPassageList from './pages/dictation/DictationPassageList';
 import DictationSession from './pages/dictation/DictationSession';
 import Profile from './pages/profile/Profile';
+
+// Admin
+import AdminLayout from './components/admin/AdminLayout';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import {
+    AdminUsers,
+    AdminCourses,
+    AdminLessons,
+    AdminVocabulary,
+    AdminTopics,
+    AdminSentences,
+    AdminDictationCollections,
+    AdminDictationPassages,
+    AdminDictationExercises
+} from './pages/admin/AdminPages';
+
 import './App.css';
 
 function AppLayout({ children }) {
@@ -26,6 +42,10 @@ function AppLayout({ children }) {
 
 const layoutRoute = (path, Component) => (
     <Route key={path} path={path} element={<AppLayout><Component /></AppLayout>} />
+);
+
+const adminRoute = (path, Component) => (
+    <Route key={path} path={path} element={<AdminLayout><Component /></AdminLayout>} />
 );
 
 export default function App() {
@@ -44,6 +64,18 @@ export default function App() {
                     {layoutRoute("/dictation/:collectionId", DictationPassageList)}
                     {layoutRoute("/dictation/passage/:passageId", DictationSession)}
                     {layoutRoute("/profile", Profile)}
+
+                    {adminRoute("/admin", AdminDashboard)}
+                    {adminRoute("/admin/users", AdminUsers)}
+                    {adminRoute("/admin/courses", AdminCourses)}
+                    {adminRoute("/admin/lessons", AdminLessons)}
+                    {adminRoute("/admin/vocabulary", AdminVocabulary)}
+                    {adminRoute("/admin/topics", AdminTopics)}
+                    {adminRoute("/admin/sentences", AdminSentences)}
+                    {adminRoute("/admin/dictation-collections", AdminDictationCollections)}
+                    {adminRoute("/admin/dictation-passages", AdminDictationPassages)}
+                    {adminRoute("/admin/dictation-exercises", AdminDictationExercises)}
+
                     {layoutRoute("*", Home)}
                 </Routes>
             </BrowserRouter>
