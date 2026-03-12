@@ -1,6 +1,7 @@
 .dictation-page {
-    padding: 0 32px 48px;
-    max-width: 900px;
+    padding: 24px 40px 48px;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .dictation-header {

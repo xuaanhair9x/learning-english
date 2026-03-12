@@ -1,6 +1,7 @@
 .read-aloud-page {
-    padding: 0 32px 40px;
-    max-width: 860px;
+    padding: 24px 40px 40px;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .read-aloud-header {

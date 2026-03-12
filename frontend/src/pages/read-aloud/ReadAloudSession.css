@@ -46,7 +46,7 @@
 
 /* ── Session Body ────────────────────────── */
 .ra-session-body {
-    max-width: 640px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 32px 24px;
 }
