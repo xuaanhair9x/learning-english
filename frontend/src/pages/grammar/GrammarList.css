@@ -1,0 +1,137 @@
+.grammar-page {
+    padding: 24px 40px 48px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.grammar-progress-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.tab-btn {
+    background: #d8b4fe;
+    /* light purple */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    width: 100%;
+}
+
+.tab-btn.active {
+    background: #c084fc;
+    /* darker purple matching design */
+}
+
+.grammar-units {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.grammar-unit {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Removed thick border initially to match clean list look, just light shadow */
+}
+
+.unit-header-bar {
+    background: #38bdf8;
+    /* bright blue */
+    color: #fff;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: filter 0.2s;
+}
+
+.unit-header-bar:hover {
+    filter: brightness(0.95);
+}
+
+.unit-header-info h3 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.unit-header-info span {
+    font-size: 12px;
+}
+
+.favorite-btn {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    filter: grayscale(1);
+    opacity: 0.8;
+}
+
+.favorite-btn:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.unit-lessons {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+}
+
+.grammar-lesson-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.15s;
+}
+
+.grammar-lesson-item:hover {
+    background: #f8fafc;
+}
+
+.grammar-lesson-item:last-child {
+    border-bottom: none;
+}
+
+.lesson-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.lesson-icon.theory {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+
+.lesson-icon.exercise {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.lesson-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}

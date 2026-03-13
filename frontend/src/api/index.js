@@ -76,4 +76,10 @@ export const dictationAPI = {
   checkAnswer: (exId, answer) => api.post(`/dictation/exercises/${exId}/check`, { answer }),
 };
 
+// ─── Grammar ───────────────────────────────────────────────
+export const grammarAPI = {
+  units: () => api.get('/grammar/units'),
+  lesson: (id) => api.get(`/grammar/lessons/${id}`),
+};
+
 export default api;

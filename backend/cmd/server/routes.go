@@ -64,6 +64,14 @@ func SetupRoutes(r *gin.Engine, db *gorm.DB, cfg *config.Config) {
 		dict.POST("/exercises/:id/check", dictHandler.CheckAnswer)
 	}
 
+	// ─── Grammar ─────────────────────────────────────────────────
+	grammarHandler := &handlers.GrammarHandler{DB: db}
+	grammar := r.Group("/api/grammar")
+	{
+		grammar.GET("/units", grammarHandler.ListUnits)
+		grammar.GET("/lessons/:id", grammarHandler.GetLesson)
+	}
+
 	// ─── Progress (authenticated) ────────────────────────────────
 	progressHandler := &handlers.ProgressHandler{DB: db}
 	progress := r.Group("/api/progress")
@@ -87,5 +95,8 @@ func SetupRoutes(r *gin.Engine, db *gorm.DB, cfg *config.Config) {
 		handlers.RegisterCRUD[models.DictationCollection](admin, db, "/dictation-collections")
 		handlers.RegisterCRUD[models.DictationPassage](admin, db, "/dictation-passages")
 		handlers.RegisterCRUD[models.DictationExercise](admin, db, "/dictation-exercises")
+		handlers.RegisterCRUD[models.GrammarUnit](admin, db, "/grammar-units")
+		handlers.RegisterCRUD[models.GrammarLesson](admin, db, "/grammar-lessons")
+		handlers.RegisterCRUD[models.GrammarExercise](admin, db, "/grammar-exercises")
 	}
 }

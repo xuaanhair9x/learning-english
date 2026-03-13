@@ -8,6 +8,8 @@ export default function AdminDashboard() {
         courses: 0,
         vocabulary: 0,
         sentences: 0,
+        grammarUnits: 0,
+        grammarLessons: 0,
     });
     const [loading, setLoading] = useState(true);
 
@@ -15,11 +17,13 @@ export default function AdminDashboard() {
         const fetchStats = async () => {
             try {
                 // Fetch simply length for each array as a basic dashboard stats
-                const [uRes, cRes, vRes, sRes] = await Promise.all([
+                const [uRes, cRes, vRes, sRes, guRes, glRes] = await Promise.all([
                     api.get('/admin/users'),
                     api.get('/admin/courses'),
                     api.get('/admin/vocabulary'),
                     api.get('/admin/sentences'),
+                    api.get('/admin/grammar-units'),
+                    api.get('/admin/grammar-lessons'),
                 ]);
 
                 setStats({
@@ -27,6 +31,8 @@ export default function AdminDashboard() {
                     courses: cRes.data.length || 0,
                     vocabulary: vRes.data.length || 0,
                     sentences: sRes.data.length || 0,
+                    grammarUnits: guRes.data.length || 0,
+                    grammarLessons: glRes.data.length || 0,
                 });
             } catch (err) {
                 console.error("Failed to load stats", err);
@@ -59,6 +65,14 @@ export default function AdminDashboard() {
                 <div className="admin-stat-card">
                     <h3>Total Sentences</h3>
                     <p className="admin-stat-number">{stats.sentences}</p>
+                </div>
+                <div className="admin-stat-card">
+                    <h3>Grammar Units</h3>
+                    <p className="admin-stat-number">{stats.grammarUnits}</p>
+                </div>
+                <div className="admin-stat-card">
+                    <h3>Grammar Lessons</h3>
+                    <p className="admin-stat-number">{stats.grammarLessons}</p>
                 </div>
             </div>
             <div className="admin-welcome-box">

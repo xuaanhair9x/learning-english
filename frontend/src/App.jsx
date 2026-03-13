@@ -11,6 +11,8 @@ import Dictation from './pages/dictation/Dictation';
 import DictationPassageList from './pages/dictation/DictationPassageList';
 import DictationSession from './pages/dictation/DictationSession';
 import Profile from './pages/profile/Profile';
+import GrammarList from './pages/grammar/GrammarList';
+import GrammarSession from './pages/grammar/GrammarSession';
 
 // Admin
 import AdminLayout from './components/admin/AdminLayout';
@@ -24,7 +26,10 @@ import {
     AdminSentences,
     AdminDictationCollections,
     AdminDictationPassages,
-    AdminDictationExercises
+    AdminDictationExercises,
+    AdminGrammarUnits,
+    AdminGrammarLessons,
+    AdminGrammarExercises
 } from './pages/admin/AdminPages';
 
 import './App.css';
@@ -63,6 +68,8 @@ export default function App() {
                     {layoutRoute("/dictation", Dictation)}
                     {layoutRoute("/dictation/:collectionId", DictationPassageList)}
                     {layoutRoute("/dictation/passage/:passageId", DictationSession)}
+                    {layoutRoute("/grammar", GrammarList)}
+                    <Route path="/grammar/:lessonId" element={<GrammarSession />} />
                     {layoutRoute("/profile", Profile)}
 
                     {adminRoute("/admin", AdminDashboard)}
@@ -75,6 +82,9 @@ export default function App() {
                     {adminRoute("/admin/dictation-collections", AdminDictationCollections)}
                     {adminRoute("/admin/dictation-passages", AdminDictationPassages)}
                     {adminRoute("/admin/dictation-exercises", AdminDictationExercises)}
+                    {adminRoute("/admin/grammar-units", AdminGrammarUnits)}
+                    {adminRoute("/admin/grammar-lessons", AdminGrammarLessons)}
+                    {adminRoute("/admin/grammar-exercises", AdminGrammarExercises)}
 
                     {layoutRoute("*", Home)}
                 </Routes>

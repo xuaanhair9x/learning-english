@@ -131,3 +131,43 @@ export const AdminDictationExercises = () => (
         ]}
     />
 );
+
+export const AdminGrammarUnits = () => (
+    <AdminCrudPage
+        endpoint="grammar-units"
+        title="Manage Grammar Units"
+        columns={[
+            { key: 'title', label: 'Title', required: true },
+            { key: 'description', label: 'Description', type: 'textarea' },
+            { key: 'order', label: 'Order', type: 'number' },
+        ]}
+    />
+);
+
+export const AdminGrammarLessons = () => (
+    <AdminCrudPage
+        endpoint="grammar-lessons"
+        title="Manage Grammar Lessons"
+        columns={[
+            { key: 'unit_id', label: 'Unit ID', type: 'number', required: true },
+            { key: 'title', label: 'Title', required: true },
+            { key: 'type', label: 'Type (theory | exercise)', required: true },
+            { key: 'content', label: 'Markdown Content', type: 'textarea', required: true },
+            { key: 'order', label: 'Order', type: 'number' },
+        ]}
+    />
+);
+
+export const AdminGrammarExercises = () => (
+    <AdminCrudPage
+        endpoint="grammar-exercises"
+        title="Manage Grammar Exercises"
+        columns={[
+            { key: 'lesson_id', label: 'Lesson ID', type: 'number', required: true },
+            { key: 'question', label: 'Question', type: 'textarea', required: true },
+            { key: 'correct_answer', label: 'Correct Answer', type: 'text' },
+            { key: 'explanation', label: 'Explanation', type: 'textarea' },
+            { key: 'order', label: 'Order', type: 'number' },
+        ]}
+    />
+);

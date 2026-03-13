@@ -27,6 +27,9 @@ export default function AdminLayout({ children }) {
         { path: '/admin/dictation-collections', label: 'Dictation Collections' },
         { path: '/admin/dictation-passages', label: 'Dictation Passages' },
         { path: '/admin/dictation-exercises', label: 'Dictation Exercises' },
+        { path: '/admin/grammar-units', label: 'Grammar Units' },
+        { path: '/admin/grammar-lessons', label: 'Grammar Lessons' },
+        { path: '/admin/grammar-exercises', label: 'Grammar Exercises' },
     ];
 
     return (
