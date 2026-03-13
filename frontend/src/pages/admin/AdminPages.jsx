@@ -152,7 +152,7 @@ export const AdminGrammarLessons = () => (
             { key: 'unit_id', label: 'Unit ID', type: 'number', required: true },
             { key: 'title', label: 'Title', required: true },
             { key: 'type', label: 'Type (theory | exercise)', required: true },
-            { key: 'content', label: 'Markdown Content', type: 'textarea', required: true },
+            { key: 'content', label: 'Markdown Content', type: 'markdown', required: true },
             { key: 'order', label: 'Order', type: 'number' },
         ]}
     />
@@ -164,9 +164,9 @@ export const AdminGrammarExercises = () => (
         title="Manage Grammar Exercises"
         columns={[
             { key: 'lesson_id', label: 'Lesson ID', type: 'number', required: true },
-            { key: 'question', label: 'Question', type: 'textarea', required: true },
+            { key: 'question', label: 'Question', type: 'markdown', required: true },
             { key: 'correct_answer', label: 'Correct Answer', type: 'text' },
-            { key: 'explanation', label: 'Explanation', type: 'textarea' },
+            { key: 'explanation', label: 'Explanation', type: 'markdown' },
             { key: 'order', label: 'Order', type: 'number' },
         ]}
     />

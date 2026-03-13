@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import MDEditor from '@uiw/react-md-editor';
 import api from '../../api';
 import './AdminCrudPage.css';
 
@@ -150,6 +151,17 @@ export default function AdminCrudPage({ endpoint, title, columns }) {
                                             onChange={handleInputChange}
                                             required={col.required}
                                         />
+                                    ) : col.type === 'markdown' ? (
+                                        <div data-color-mode="light">
+                                            <MDEditor
+                                                value={formData[col.key] || ''}
+                                                onChange={(val) => setFormData(prev => ({ ...prev, [col.key]: val || '' }))}
+                                                textareaProps={{
+                                                    placeholder: 'Enter markdown text...'
+                                                }}
+                                                height={300}
+                                            />
+                                        </div>
                                     ) : (
                                         <input
                                             type={col.type || 'text'}
