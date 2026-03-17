@@ -13,6 +13,9 @@ import DictationSession from './pages/dictation/DictationSession';
 import Profile from './pages/profile/Profile';
 import GrammarList from './pages/grammar/GrammarList';
 import GrammarSession from './pages/grammar/GrammarSession';
+import ToeicList from './pages/toeic/ToeicList';
+import ToeicConfig from './pages/toeic/ToeicConfig';
+import ToeicSession from './pages/toeic/ToeicSession';
 
 // Admin
 import AdminLayout from './components/admin/AdminLayout';
@@ -68,6 +71,9 @@ export default function App() {
                     {layoutRoute("/dictation", Dictation)}
                     {layoutRoute("/dictation/:collectionId", DictationPassageList)}
                     {layoutRoute("/dictation/passage/:passageId", DictationSession)}
+                    {layoutRoute("/toeic", ToeicList)}
+                    {layoutRoute("/toeic/:id/config", ToeicConfig)}
+                    <Route path="/toeic/:id/test" element={<ToeicSession />} />
                     {layoutRoute("/grammar", GrammarList)}
                     <Route path="/grammar/:lessonId" element={<GrammarSession />} />
                     {layoutRoute("/profile", Profile)}

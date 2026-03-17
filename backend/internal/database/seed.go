@@ -15,6 +15,7 @@ func Seed(db *gorm.DB) {
 	SeedSentences(db)
 	SeedDictation(db)
 	SeedGrammar(db)
+	SeedToeic(db)
 
 	log.Println("All seeders complete.")
 }

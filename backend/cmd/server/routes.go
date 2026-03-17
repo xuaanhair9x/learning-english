@@ -72,6 +72,15 @@ func SetupRoutes(r *gin.Engine, db *gorm.DB, cfg *config.Config) {
 		grammar.GET("/lessons/:id", grammarHandler.GetLesson)
 	}
 
+	// ─── TOEIC ───────────────────────────────────────────────────
+	toeicHandler := &handlers.ToeicHandler{DB: db}
+	toeic := r.Group("/api/toeic")
+	{
+		toeic.GET("/tests", toeicHandler.ListTests)
+		toeic.GET("/tests/:id", toeicHandler.GetTest)
+		toeic.GET("/parts/:partId/questions", toeicHandler.GetPartQuestions)
+	}
+
 	// ─── Progress (authenticated) ────────────────────────────────
 	progressHandler := &handlers.ProgressHandler{DB: db}
 	progress := r.Group("/api/progress")
@@ -98,5 +107,8 @@ func SetupRoutes(r *gin.Engine, db *gorm.DB, cfg *config.Config) {
 		handlers.RegisterCRUD[models.GrammarUnit](admin, db, "/grammar-units")
 		handlers.RegisterCRUD[models.GrammarLesson](admin, db, "/grammar-lessons")
 		handlers.RegisterCRUD[models.GrammarExercise](admin, db, "/grammar-exercises")
+		handlers.RegisterCRUD[models.ToeicTest](admin, db, "/toeic-tests")
+		handlers.RegisterCRUD[models.ToeicPart](admin, db, "/toeic-parts")
+		handlers.RegisterCRUD[models.ToeicQuestion](admin, db, "/toeic-questions")
 	}
 }

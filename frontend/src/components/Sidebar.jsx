@@ -7,6 +7,7 @@ const navItems = [
     { icon: '📖', label: 'Bài đọc', path: '/' },
     { icon: '📢', label: 'Read Aloud', path: '/read-aloud' },
     { icon: '🎧', label: 'Dictation', path: '/dictation' },
+    { icon: '📝', label: 'Luyện đề', path: '/toeic' },
     { icon: '📒', label: 'Ngữ pháp', path: '/grammar' },
     { icon: '⚙️', label: 'Thiết lập', path: '/settings' },
 ];
